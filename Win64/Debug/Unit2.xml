@@ -2557,15 +2557,17 @@
       <field name="AppIconsFolder" type="string" visibility="public" size="8" offset="1872" file="Unit2.pas" line="59" />
       <field name="AppIcons" type="TJSONArray" visibility="public" size="8" offset="1880" file="Unit2.pas" line="60" />
       <field name="AppIconSets" type="string" visibility="public" size="8" offset="1888" file="Unit2.pas" line="61" />
-      <field name="DatabaseName" type="string" visibility="public" size="8" offset="1896" file="Unit2.pas" line="63" />
-      <field name="DatabaseAlias" type="string" visibility="public" size="8" offset="1904" file="Unit2.pas" line="64" />
-      <field name="DatabaseEngine" type="string" visibility="public" size="8" offset="1912" file="Unit2.pas" line="65" />
-      <field name="DatabaseUsername" type="string" visibility="public" size="8" offset="1920" file="Unit2.pas" line="66" />
-      <field name="DatabasePassword" type="string" visibility="public" size="8" offset="1928" file="Unit2.pas" line="67" />
-      <field name="DatabaseConfig" type="string" visibility="public" size="8" offset="1936" file="Unit2.pas" line="68" />
-      <procedure name="UpdateGUI" visibility="class private" file="Unit2.pas" line="71">
+      <field name="AppAudioClipsFolder" type="string" visibility="public" size="8" offset="1896" file="Unit2.pas" line="63" />
+      <field name="AppAudioClips" type="TJSONArray" visibility="public" size="8" offset="1904" file="Unit2.pas" line="64" />
+      <field name="DatabaseName" type="string" visibility="public" size="8" offset="1912" file="Unit2.pas" line="66" />
+      <field name="DatabaseAlias" type="string" visibility="public" size="8" offset="1920" file="Unit2.pas" line="67" />
+      <field name="DatabaseEngine" type="string" visibility="public" size="8" offset="1928" file="Unit2.pas" line="68" />
+      <field name="DatabaseUsername" type="string" visibility="public" size="8" offset="1936" file="Unit2.pas" line="69" />
+      <field name="DatabasePassword" type="string" visibility="public" size="8" offset="1944" file="Unit2.pas" line="70" />
+      <field name="DatabaseConfig" type="string" visibility="public" size="8" offset="1952" file="Unit2.pas" line="71" />
+      <procedure name="UpdateGUI" visibility="class private" file="Unit2.pas" line="74">
       </procedure>
     </members>
   </class>
-  <variable name="MainForm" type="TMainForm" file="Unit2.pas" line="75" />
+  <variable name="MainForm" type="TMainForm" file="Unit2.pas" line="78" />
 </namespace>

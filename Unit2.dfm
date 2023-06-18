@@ -2,8 +2,8 @@ object MainForm: TMainForm
   Left = 0
   Top = 0
   Caption = 'HexaGongs XData Server'
-  ClientHeight = 242
-  ClientWidth = 472
+  ClientHeight = 526
+  ClientWidth = 623
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,15 +13,15 @@ object MainForm: TMainForm
   OldCreateOrder = False
   OnCreate = FormCreate
   DesignSize = (
-    472
-    242)
+    623
+    526)
   PixelsPerInch = 96
   TextHeight = 13
   object mmInfo: TMemo
     Left = 8
     Top = 40
-    Width = 456
-    Height = 194
+    Width = 607
+    Height = 478
     Anchors = [akLeft, akTop, akRight, akBottom]
     ReadOnly = True
     TabOrder = 0
@@ -55,6 +55,7 @@ object MainForm: TMainForm
   end
   object tmrStart: TTimer
     Enabled = False
+    Interval = 100
     OnTimer = tmrStartTimer
     Left = 64
     Top = 56

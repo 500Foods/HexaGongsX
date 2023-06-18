@@ -12,7 +12,7 @@ uses
   FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteDef, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.Phys.SQLite,
-  Vcl.ExtCtrls, System.JSON, System.StrUtils,IdGlobalProtocols, System.Generics.Collections;
+  Vcl.ExtCtrls, System.JSON, System.StrUtils, IdGlobalProtocols, System.Generics.Collections;
 
 type
   TMainForm = class(TForm)
@@ -60,6 +60,9 @@ type
     AppIcons: TJSONArray;
     AppIconSets: String;
 
+    AppAudioClipsFolder: String;
+    AppAudioClips: TJSONArray;
+
     DatabaseName: String;
     DatabaseAlias: String;
     DatabaseEngine: String;
@@ -79,6 +82,34 @@ implementation
 {$R *.dfm}
 
 { TMainForm }
+
+// Attribution: https://stackoverflow.com/questions/24929026/issues-with-filesize-function
+{$WARN SYMBOL_PLATFORM OFF}
+function GetSizeOfFile(const Filename: string): Int64;
+type
+  TSizeType = (stDWORD, stInt64);
+var
+ sizerec: packed record
+   case TSizeType of
+     stDWORD: (SizeLow: LongWord; SizeHigh: LongWord);
+     stInt64: (Size: Int64);
+ end;
+ sr : TSearchRec;
+begin
+  if FindFirst(fileName, faAnyFile, sr ) <> 0 then
+  begin
+    Result := -1;
+    Exit;
+  end;
+  try
+    sizerec.SizeLow := sr.FindData.nFileSizeLow;
+    sizerec.SizeHigh := sr.FindData.nFileSizeHigh;
+    Result := sizerec.Size;
+  finally
+    FindClose(sr) ;
+  end;
+end;
+{$WARN SYMBOL_PLATFORM ON}
 
 procedure TMainForm.btStartClick(ASender: TObject);
 begin
@@ -331,17 +362,20 @@ begin
   ServerContainer.XDataServer.BaseURL := (AppConfiguration.getValue('BaseURL') as TJSONString).Value;
 
 
+  tmrStart.Enabled := True;
 end;
 
 procedure TMainForm.tmrStartTimer(Sender: TObject);
 var
   i: Integer;
   ImageFile: TStringList;
-  TableName: String;
+//  TableName: String;
+
   CacheFolderDirs: String;
   CacheFolderFiles: String;
   CacheFolderSize: Double;
   CacheFolderList: TStringDynArray;
+
   IconFiles: TStringDynArray;
   IconFile: TStringList;
   IconJSON: TJSONObject;
@@ -350,6 +384,9 @@ var
   IconHeight: Integer;
   IconCount: Integer;
   IconTotal: Integer;
+
+  AudioClips: TStringDynArray;
+  ClipName: String;
 begin
 
   tmrStart.Enabled := False;
@@ -502,6 +539,44 @@ begin
   // We don't need to do anything else with this, so we'll store it as a string and
   // then return just that when asked for this ata.
   AppIconSets := IconSets.ToString;
+
+
+  // Load up Audio clips
+  if (AppConfiguration.GetValue('Audio') <> nil)
+  then AppAudioClipsFolder := (AppConfiguration.GetValue('Audio') as TJSONString).Value
+  else AppAudioClipsFolder := GetCurrentDir+'/audio-clips';
+  if RightStr(AppAudioClipsFolder,1) <> '/'
+  then AppAudioClipsFolder := AppAudioClipsFolder + '/';
+  ForceDirectories(AppAudioClipsFolder);
+  AudioClips := TDirectory.GetFiles(AppAudioClipsFolder,'*.*',TsearchOption.soAllDirectories);
+
+  AppAudioClips := TJSONArray.Create;
+
+  if length(AudioClips) = 0 then
+  begin
+    mmInfo.Lines.Add('...No Audio Clips Loaded: None Found.');
+  end
+  else
+  begin
+    mmInfo.Lines.Add('...Found '+IntToStr(Length(AudioClips))+' Audio Clips');
+    for i := 0 to Length(AudioClips)-1 do
+    begin
+      ClipName := StringReplace(copy(AudioClips[i],length(AppAudioClipsFolder)+1,length(AudioClips[i])),'\','/',[rfReplaceAll]);
+      ClipName := StringReplace(ClipName,'_',' ',[rfReplaceAll]);
+      ClipName := StringReplace(ClipName,'-',' ',[rfReplaceAll]);
+      ClipName := StringReplace(ClipName,'.mp3','',[rfReplaceAll]);
+      ClipName := StringReplace(ClipName,'.wav','',[rfReplaceAll]);
+      ClipName := StringReplace(ClipName,'.ogg','',[rfReplaceAll]);
+      ClipName := StringReplace(ClipName,'.oga','',[rfReplaceAll]);
+      ClipName := StringReplace(ClipName,'.acc','',[rfReplaceAll]);
+      AppAudioClips.Add(TJSONObject.ParseJSONValue('{'+
+        '"Name":"'+ClipName+'",'+
+        '"Type":"'+Uppercase(StringReplace(TPath.GetExtension(AudioClips[i]),'.','',[rfReplaceAll]))+'",'+
+        '"FullName":"'+StringReplace(copy(AudioClips[i],length(AppAudioClipsFolder)+1,length(AudioClips[i])),'\','/',[rfReplaceAll])+'",'+
+        '"Size":'+IntToStr(GetSizeOfFile(AudioClips[i]))+
+        '}') as TJSONObject);
+    end;
+  end;
 
 
   mmInfo.Lines.Add('...Memory Usage: '+Format('%.1n',[GetMemoryUsage / 1024 / 1024])+' MB');

@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <namespace name="Project1" platform="Win64">
+  <contains name="System.Net.HttpClientComponent" />
+  <contains name="System.Net.HttpClient" />
+  <contains name="System.Net.HttpClient.Win" />
+  <contains name="Winapi.WinHTTP" />
+  <contains name="System.Net.Mime" />
+  <contains name="System.Net.URLClient" />
+  <contains name="System.NetEncoding" />
+  <contains name="System.Threading" />
+  <contains name="System.NetConsts" />
   <contains name="IdGlobalProtocols" />
   <contains name="IdResourceStringsProtocols" />
   <contains name="IdResourceStringsCore" />
@@ -377,6 +386,8 @@
   <contains name="Winapi.Windows" />
   <contains name="System.UITypes" />
   <contains name="System.Types" />
+  <contains name="HexaGongsServiceImplementation" />
+  <contains name="HexaGongsService" />
   <contains name="Unit2" />
   <contains name="Unit1" />
   <contains name="Vcl.Forms" />
