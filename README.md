@@ -8,6 +8,21 @@ The project was created initially using the standard TMS XData Application Templ
 
 In order for the XData server to be able to serve up Audio Clips or Icon Sets as part of its function, the "audio-clips" and "icon-sets" folders need to be populated.  These folders by default are subfolders of wherever the XData is run from, but their location can be modified in the configuration JSON, if one is supplied.  The location of the configuration JSON can also be changed by passing a parameter to the executable. Please refer to the [TMS XData Template Demo Data](https://github.com/500Foods/TMS-XData-TemplateDemoData) for more information about the configuration JSON contents and the parameters that are used for this.
 
+## Repository Information
+[![Count Lines of Code](https://github.com/500Foods/HexaGongsX/actions/workflows/main.yml/badge.svg)](https://github.com/500Foods/HexaGongsX/actions/workflows/main.yml)
+```
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Pascal                           5            143            112            701
+Delphi Form                      2              0              0            105
+YAML                             2              5              8             15
+Markdown                         1              5              0              8
+-------------------------------------------------------------------------------
+SUM:                            10            153            120            829
+-------------------------------------------------------------------------------
+```
+
 ## Sponsor / Donate / Support
 If you find this work interesting, helpful, or valuable, or that it has saved you time, money, or both, please consider directly supporting these efforts financially via [GitHub Sponsors](https://github.com/sponsors/500Foods) or donating via [Buy Me a Pizza](https://www.buymeacoffee.com/andrewsimard500). Also, check out these other [GitHub Repositories](https://github.com/500Foods?tab=repositories&q=&sort=stargazers) that may interest you.
 
