@@ -22,6 +22,7 @@ type
     btSwagger: TButton;
     tmrStart: TTimer;
     tmrInit: TTimer;
+    Button1: TButton;
     procedure btStartClick(ASender: TObject);
     procedure btStopClick(ASender: TObject);
     procedure FormCreate(ASender: TObject);
@@ -40,6 +41,7 @@ type
     procedure tmrStartTimer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tmrInitTimer(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   public
     AppName: String;
     AppVersion: String;
@@ -135,6 +137,20 @@ begin
       cHttp, cHttpLocalhost, [rfIgnoreCase])+'/swaggerui';
   ShellExecute(0, 'open', PChar(url), nil, nil, SW_SHOWNORMAL);
 end;
+
+procedure TMainForm.Button1Click(Sender: TObject);
+var
+  url: String;
+const
+  cHttp = '://+';
+  cHttpLocalhost = '://localhost';
+begin
+  url := StringReplace(
+      ServerContainer.XDataServer.BaseUrl,
+      cHttp, cHttpLocalhost, [rfIgnoreCase])+'/redoc';
+  ShellExecute(0, 'open', PChar(url), nil, nil, SW_SHOWNORMAL);
+end;
+
 
 procedure TMainForm.FormCreate(ASender: TObject);
 begin

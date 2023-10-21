@@ -11,6 +11,7 @@ object MainForm: TMainForm
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  WindowState = wsMinimized
   OnCreate = FormCreate
   DesignSize = (
     623
@@ -52,6 +53,15 @@ object MainForm: TMainForm
     Caption = 'Swagger'
     TabOrder = 3
     OnClick = btSwaggerClick
+  end
+  object Button1: TButton
+    Left = 252
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Redoc'
+    TabOrder = 4
+    OnClick = Button1Click
   end
   object tmrStart: TTimer
     Enabled = False
