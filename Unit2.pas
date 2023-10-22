@@ -22,7 +22,7 @@ type
     btSwagger: TButton;
     tmrStart: TTimer;
     tmrInit: TTimer;
-    Button1: TButton;
+    btRedoc: TButton;
     procedure btStartClick(ASender: TObject);
     procedure btStopClick(ASender: TObject);
     procedure FormCreate(ASender: TObject);
@@ -41,7 +41,7 @@ type
     procedure tmrStartTimer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tmrInitTimer(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure btRedocClick(Sender: TObject);
   public
     AppName: String;
     AppVersion: String;
@@ -138,7 +138,7 @@ begin
   ShellExecute(0, 'open', PChar(url), nil, nil, SW_SHOWNORMAL);
 end;
 
-procedure TMainForm.Button1Click(Sender: TObject);
+procedure TMainForm.btRedocClick(Sender: TObject);
 var
   url: String;
 const

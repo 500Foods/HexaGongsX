@@ -54,14 +54,14 @@ object MainForm: TMainForm
     TabOrder = 3
     OnClick = btSwaggerClick
   end
-  object Button1: TButton
+  object btRedoc: TButton
     Left = 252
     Top = 8
     Width = 75
     Height = 25
     Caption = 'Redoc'
     TabOrder = 4
-    OnClick = Button1Click
+    OnClick = btRedocClick
   end
   object tmrStart: TTimer
     Enabled = False
