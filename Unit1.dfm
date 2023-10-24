@@ -8,7 +8,7 @@ object ServerContainer: TServerContainer
     Top = 16
   end
   object XDataServer: TXDataServer
-    BaseUrl = 'http://+:65432/tms/xdata'
+    BaseUrl = 'http://+:65432/hexagongs'
     Dispatcher = SparkleHttpSysDispatcher
     Pool = XDataConnectionPool
     EntitySetPermissions = <>
@@ -17,6 +17,7 @@ object ServerContainer: TServerContainer
     SwaggerUIOptions.ShowFilter = True
     SwaggerUIOptions.DocExpansion = Full
     SwaggerUIOptions.TryItOutEnabled = True
+    RedocOptions.Enabled = True
     Left = 216
     Top = 16
     object XDataServerCompress: TSparkleCompressMiddleware

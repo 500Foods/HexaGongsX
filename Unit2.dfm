@@ -11,8 +11,8 @@ object MainForm: TMainForm
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  WindowState = wsMinimized
   OnCreate = FormCreate
+  OnShow = FormShow
   DesignSize = (
     623
     526)

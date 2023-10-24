@@ -369,7 +369,7 @@ begin
     // Create an empty AppConfiguration
     mmInfo.Lines.Add('...Using Default Configuration');
     AppConfiguration := TJSONObject.Create;
-    AppConfiguration.AddPair('BaseURL','http://+:65432/tms/xdata');
+    AppConfiguration.AddPair('BaseURL','http://+:65432/hexagongs');
   end;
   mmInfo.Lines.Add('Done.');
   mmInfo.Lines.Add('');
@@ -618,6 +618,7 @@ begin
   begin
     mmInfo.Lines.Add('XData Server started at '+StringReplace( ServerContainer.XDataServer.BaseUrl, cHttp, cHttpLocalhost, [rfIgnoreCase]));
     mmInfo.Lines.Add('SwaggerUI started at '+StringReplace( ServerContainer.XDataServer.BaseUrl, cHttp, cHttpLocalhost, [rfIgnoreCase])+'/swaggerui');
+    mmInfo.Lines.Add('Redoc started at '+StringReplace( ServerContainer.XDataServer.BaseUrl, cHttp, cHttpLocalhost, [rfIgnoreCase])+'/redoc');
   end
   else
   begin

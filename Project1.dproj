@@ -127,7 +127,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <Icon_MainIcon>Project1_Icon.ico</Icon_MainIcon>
+        <Icon_MainIcon>hexagongs_logo.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>hexagongs_logo.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>hexagongs_logo.png</UWP_DelphiLogo150>
     </PropertyGroup>
