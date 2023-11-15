@@ -1,4 +1,4 @@
-program HexaGongsX;
+program HexaGongsServer;
 
 uses
   Vcl.Forms,

@@ -20,7 +20,7 @@ object MainForm: TMainForm
   TextHeight = 13
   object mmInfo: TMemo
     Left = 8
-    Top = 40
+    Top = 39
     Width = 607
     Height = 478
     Anchors = [akLeft, akTop, akRight, akBottom]
@@ -62,6 +62,15 @@ object MainForm: TMainForm
     Caption = 'Redoc'
     TabOrder = 4
     OnClick = btRedocClick
+  end
+  object btnEMail: TButton
+    Left = 333
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Redoc'
+    TabOrder = 5
+    OnClick = btnEMailClick
   end
   object tmrStart: TTimer
     Enabled = False
