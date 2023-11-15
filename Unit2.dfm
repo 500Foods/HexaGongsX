@@ -51,6 +51,7 @@ object MainForm: TMainForm
     Width = 75
     Height = 25
     Caption = 'Swagger'
+    Enabled = False
     TabOrder = 3
     OnClick = btSwaggerClick
   end
@@ -60,17 +61,19 @@ object MainForm: TMainForm
     Width = 75
     Height = 25
     Caption = 'Redoc'
+    Enabled = False
     TabOrder = 4
     OnClick = btRedocClick
   end
-  object btnEMail: TButton
+  object btEMail: TButton
     Left = 333
     Top = 8
     Width = 75
     Height = 25
-    Caption = 'Redoc'
+    Caption = 'E-Mail'
+    Enabled = False
     TabOrder = 5
-    OnClick = btnEMailClick
+    OnClick = btEMailClick
   end
   object tmrStart: TTimer
     Enabled = False

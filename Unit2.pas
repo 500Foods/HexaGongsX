@@ -68,7 +68,7 @@ type
     tmrStart: TTimer;
     tmrInit: TTimer;
     btRedoc: TButton;
-    btnEMail: TButton;
+    btEMail: TButton;
     procedure btStartClick(ASender: TObject);
     procedure btStopClick(ASender: TObject);
     procedure FormCreate(ASender: TObject);
@@ -91,7 +91,7 @@ type
     procedure LogEvent(Details: String);
     procedure LogException(Source, EClass, EMessage, Data: String);
     procedure SendActivityLog(Subject: String);
-    procedure btnEMailClick(Sender: TObject);
+    procedure btEMailClick(Sender: TObject);
   public
     AppName: String;
     AppVersion: String;
@@ -199,7 +199,7 @@ begin
   ShellExecute(0, 'open', PChar(url), nil, nil, SW_SHOWNORMAL);
 end;
 
-procedure TMainForm.btnEMailClick(Sender: TObject);
+procedure TMainForm.btEMailClick(Sender: TObject);
 begin
   SendActivityLog('Activity Log');
 end;
@@ -551,6 +551,7 @@ begin
   MailServerAvailable := False;
   if AppConfiguration.GetValue('Mail Services') <> nil then
   begin
+    btEMail.Enabled := True;
     MailServerAvailable := True;
     MailServerHost := ((AppConfiguration.GetValue('Mail Services') as TJSONObject).GetValue('SMTP Host') as TJSONString).Value;
     MailServerPort := ((AppConfiguration.GetValue('Mail Services') as TJSONObject).GetValue('SMTP Port') as TJSONNumber).AsInt;
@@ -815,10 +816,14 @@ begin
     LogEvent('XData Server started at '+StringReplace( ServerContainer.XDataServer.BaseUrl, cHttp, cHttpLocalhost, [rfIgnoreCase]));
     LogEvent('SwaggerUI started at '+StringReplace( ServerContainer.XDataServer.BaseUrl, cHttp, cHttpLocalhost, [rfIgnoreCase])+'/swaggerui');
     LogEvent('Redoc started at '+StringReplace( ServerContainer.XDataServer.BaseUrl, cHttp, cHttpLocalhost, [rfIgnoreCase])+'/redoc');
+    btSwagger.Enabled := True;
+    btRedoc.Enabled := True;
   end
   else
   begin
     LogEvent('XData Server stopped');
+    btSwagger.Enabled := False;
+    btRedoc.Enabled := False;
   end;
 end;
 

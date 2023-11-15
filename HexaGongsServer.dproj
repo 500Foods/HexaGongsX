@@ -130,6 +130,9 @@
         <Icon_MainIcon>hexagongs_logo.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>hexagongs_logo.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>hexagongs_logo.png</UWP_DelphiLogo150>
+        <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
+        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
