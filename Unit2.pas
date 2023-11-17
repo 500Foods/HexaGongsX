@@ -432,7 +432,7 @@ begin
         Msg1 := Html1.NewMessage(nil);
 
         // Startup should be < 10s but otherwise send the running time
-        if MillisecondsBetween(Now, AppStartup) < 10000
+        if MillisecondsBetween(Now, AppStartup) < 30000
         then Msg1.Subject := '['+GetEnvironmentVariable('COMPUTERNAME')+'] '+Subject+': '+MainForm.Caption+' ('+IntToStr(MillisecondsBetween(Now, AppStartup))+'ms)'
         else Msg1.Subject := '['+GetEnvironmentVariable('COMPUTERNAME')+'] '+Subject+': '+MainForm.Caption+' ('+FormatDateTime('hh:nn:ss', Now - AppStartup)+'}';
 
@@ -498,6 +498,8 @@ begin
   AppFileSize := GetAppFileSize;
   AppTimeZone := GetAppTimeZone;
   AppTimeZoneOffset := GetAppTimeZoneOffset;
+
+  Caption := AppName+'     Ver '+AppVersion+'     Rel '+FormatDateTime('yyyy-mmm-dd',AppRelease);
 
   // List of App Parameters
   AppParameters := TStringList.Create;
