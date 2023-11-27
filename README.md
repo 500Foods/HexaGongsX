@@ -12,17 +12,16 @@ In order for the XData server to be able to serve up Audio Clips or Icon Sets as
 [![Count Lines of Code](https://github.com/500Foods/HexaGongsX/actions/workflows/main.yml/badge.svg)](https://github.com/500Foods/HexaGongsX/actions/workflows/main.yml)
 <!--CLOC-START -->
 ```
-Last Updated at 2023-11-27 01:52:22 UTC
+Last Updated at 2023-11-27 02:01:20 UTC
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Pascal                           2             48             62            160
-Delphi Form                      1              0              0             39
-Markdown                         1              8              2             39
-YAML                             2             11             13             33
-HTML                             2              7              0             23
+Pascal                           5            171            115            890
+Delphi Form                      2              0              0            128
+YAML                             2              9             12             33
+Markdown                         1              6              2             24
 -------------------------------------------------------------------------------
-SUM:                             8             74             77            294
+SUM:                            10            186            129           1075
 -------------------------------------------------------------------------------
 ```
 <!--CLOC-END-->
